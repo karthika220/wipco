@@ -242,12 +242,7 @@ p {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(3, 7, 33, 0.90) 0%,
-    rgba(43, 56, 142, 0.70) 55%,
-    rgba(3, 7, 33, 0.45) 100%
-  );
+  background: rgba(3, 7, 33, 0.86);
   z-index: 1;
 }
 
@@ -549,7 +544,13 @@ p {
 /* ============================================================
    SECTION 5 – WHY WIPCO
    ============================================================ */
-.why-wipco { background: var(--white); }
+.why-wipco {
+  background: var(--white);
+  padding: 90px 40px;
+}
+.why-wipco-inner {
+  width: 100%;
+}
 .why-wipco .section-title { text-align: left; }
 
 .why-grid {
@@ -560,6 +561,7 @@ p {
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   overflow: hidden;
+  width: 100%;
 }
 
 .why-card {
