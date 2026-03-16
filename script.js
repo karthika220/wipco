@@ -101,7 +101,8 @@ if (track && prevBtn && nextBtn) {
   function updateSlider() {
     // Use the card's rendered width + gap for precise translation
     const cardW = cards[0].getBoundingClientRect().width;
-    const gap = -50;
+    const isMobile = window.innerWidth <= 768;
+    const gap = isMobile ? 0 : -50;
     const offset = currentIndex * (cardW + gap);
 
     track.style.transform = `translateX(-${offset}px)`;
