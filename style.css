@@ -48,7 +48,7 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 p {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1rem; /* 2px bigger — card paragraphs are overridden below */
 }
 
@@ -368,7 +368,7 @@ h1, h2, h3, h4 {
   position: relative;
   z-index: 2;
   max-width: 720px;
-  padding: 80px var(--site-pad);
+  padding: 5px var(--site-pad) 80px;
 }
 
 .hero-title {
@@ -756,7 +756,10 @@ h1, h2, h3, h4 {
   font-weight: 700;
   font-size: clamp(1.8rem, 2.8vw, 2.4rem);
   margin-bottom: 56px;
-  color: var(--dark-text);
+  background: linear-gradient(135deg, #030721 0%, #2B388E 60%, #4a5fc4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .clients-grid {
@@ -910,6 +913,7 @@ h1, h2, h3, h4 {
   margin-right: -50px;
   /* Match image aspect ratio: 1291 × 1469 */
   aspect-ratio: 1291 / 1469;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -947,17 +951,21 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 200px;
 }
-/* Triangle tail at bottom-left */
+/* Triangle tail at bottom-left - connected to bubble */
 .t-bubble::after {
   content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: -10px;
   left: 0;
+  width: 0;
+  height: 0;
   border-left: 0px solid transparent;
-  border-right: 14px solid transparent;
-  border-top: 12px solid #ffffff;
+  border-right: 16px solid transparent;
+  border-top: 10px solid #ffffff;
   filter: drop-shadow(0 4px 3px rgba(3,7,33,0.1));
+  z-index: 1;
 }
 
 .t-bubble p {
@@ -1008,7 +1016,9 @@ h1, h2, h3, h4 {
   border-top: 1px solid var(--gray-mid);
 }
 
-.faq-item { border-bottom: 1px solid var(--gray-mid); }
+.faq-item { 
+  border-bottom: 1px solid var(--gray-mid);
+}
 
 .faq-q {
   display: flex;
@@ -1021,9 +1031,12 @@ h1, h2, h3, h4 {
   color: var(--dark-text);
   text-align: left;
   gap: 20px;
-  transition: color var(--transition);
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
-.faq-q:hover { color: var(--navy); }
+.faq-q:hover { 
+  color: var(--navy);
+}
 
 .faq-icon {
   font-size: 1.5rem;
@@ -1031,7 +1044,8 @@ h1, h2, h3, h4 {
   color: var(--gray-text);
   flex-shrink: 0;
   line-height: 1;
-  transition: transform 0.3s, color 0.3s;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.4s ease;
 }
 
 .faq-item.open .faq-icon {
@@ -1043,7 +1057,11 @@ h1, h2, h3, h4 {
 .faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
+  opacity: 0;
+  padding-top: 0;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+              padding-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .faq-a p {
   padding-bottom: 24px;
@@ -1052,7 +1070,11 @@ h1, h2, h3, h4 {
   line-height: 1.75;
   padding-right: 48px;
 }
-.faq-item.open .faq-a { max-height: 300px; }
+.faq-item.open .faq-a { 
+  max-height: 500px; 
+  opacity: 1;
+  padding-top: 8px;
+}
 
 /* ============================================================
    SECTION 10 – FOOTER
