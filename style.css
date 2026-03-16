@@ -978,6 +978,11 @@ h1, h2, h3, h4 {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.t-bubble p::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Divider inside bubble */
@@ -1315,6 +1320,11 @@ h1, h2, h3, h4 {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  .t-bubble p::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   .t-card-bottom {
     flex-wrap: nowrap;
