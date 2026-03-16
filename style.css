@@ -914,7 +914,7 @@ h1, h2, h3, h4 {
   /* Match image aspect ratio: 1291 × 1469 */
   aspect-ratio: 1291 / 1469;
   min-height: 400px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* The PNG card image as the container background */
@@ -951,8 +951,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-height: 220px;
-  height: auto;
+  height: 280px;
   overflow: visible;
 }
 /* Triangle tail at bottom-left - connected to bubble */
@@ -968,6 +967,7 @@ h1, h2, h3, h4 {
   border-top: 10px solid #ffffff;
   filter: drop-shadow(0 4px 3px rgba(3,7,33,0.1));
   z-index: 1;
+  pointer-events: none;
 }
 
 .t-bubble p {
@@ -975,6 +975,9 @@ h1, h2, h3, h4 {
   color: #374151;
   line-height: 1.8;
   margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Divider inside bubble */
@@ -1212,7 +1215,7 @@ h1, h2, h3, h4 {
     min-height: 380px;
   }
   .t-bubble {
-    height: 200px;
+    height: 280px;
     padding: 24px 22px 20px;
   }
   /* About section stacks on tablet */
@@ -1297,7 +1300,7 @@ h1, h2, h3, h4 {
     overflow: visible;
   }
   .t-bubble {
-    height: 220px;
+    height: 240px;
     padding: 20px 18px 18px;
     gap: 12px;
     display: flex;
@@ -1311,6 +1314,7 @@ h1, h2, h3, h4 {
     margin: 0;
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
   }
   .t-card-bottom {
     flex-wrap: nowrap;
