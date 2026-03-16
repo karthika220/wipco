@@ -57,19 +57,6 @@ const fadeObserver = new IntersectionObserver((entries) => {
 fadeEls.forEach(el => fadeObserver.observe(el));
 
 
-// ===================== CLIENT LOGOS STAGGER ANIMATION =====================
-const clientsGrid = document.querySelector('.clients-grid');
-if (clientsGrid) {
-  const logoObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        logoObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  logoObserver.observe(clientsGrid);
-}
 
 
 // ===================== FAQ ACCORDION =====================
@@ -104,7 +91,7 @@ const nextBtn = document.getElementById('tNext');
 
 if (track && prevBtn && nextBtn) {
   let currentIndex = 0;
-  const cards = track.querySelectorAll('.testimonial-card');
+  const cards = track.querySelectorAll('.t-card');
 
   const visibleCount = () =>
     window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
@@ -114,7 +101,7 @@ if (track && prevBtn && nextBtn) {
   function updateSlider() {
     // Use the card's rendered width + gap for precise translation
     const cardW = cards[0].getBoundingClientRect().width;
-    const gap = 24;
+    const gap = -50;
     const offset = currentIndex * (cardW + gap);
 
     track.style.transform = `translateX(-${offset}px)`;
